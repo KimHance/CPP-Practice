@@ -3,6 +3,8 @@
 #include"ATMachine.h"
 using namespace std;
 
+int ATMachine::baseNum = 0;
+int ATMachine::nCurrentAccountNum = 0;
 
 int main() {
 	int select;
@@ -13,6 +15,12 @@ int main() {
 		atm.displayMenu();
 		cout << "메뉴를 선택하세요 : ";
 		cin >> select;
+		if (cin.fail()) {
+			cout << "숫자를 입력하세요.\n" << endl;
+			cin.clear();
+			cin.ignore(256, '\n');
+			continue;
+		}
 		cout << endl;
 		switch (select) {
 
@@ -28,8 +36,14 @@ int main() {
 		case 4:
 			atm.withdrawMoney();
 			break;
+		case 5:
+			atm.transfer();
+			break;
 		case 6:
 			atm.closeAccount();
+			break;
+		case 7:
+			atm.managerModel();
 			break;
 		case 9:
 			cout << "안녕히 가세요" << endl;

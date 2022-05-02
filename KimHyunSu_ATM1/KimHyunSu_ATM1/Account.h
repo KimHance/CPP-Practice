@@ -23,7 +23,13 @@ public:
 	void close(); // 계좌 해지
 	int check(int id, string password); // return 값 : nBalance (잔고) or 인증 실패(AUTHENTIFICATION_FAIL)
 	int getAcctID() { return nID; } // 계좌 번호 읽어오기
-	int deposit(int id, string password, int money); // 입금
 	int withdraw(int id, string password, int money); // 출금
+	int deposit(int id, string password, int money); // 입금
+
+	// 프로젝트 2차 추가
+	int deposit(int id, int money); 
+	void withdraw(int money); 
+	int getBalance() { return nBalance; }
+	string getAccountName() { return strAccountName; }
 };
 #endif

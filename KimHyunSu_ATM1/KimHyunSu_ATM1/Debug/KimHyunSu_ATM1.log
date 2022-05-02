@@ -1,3 +1,6 @@
 ﻿  ATMachine.cpp
-C:\Users\rldkv\source\repos\KimHyunSu_ATM1\KimHyunSu_ATM1\ATMachine.cpp(15,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\rldkv\source\repos\KimHyunSu_ATM1\KimHyunSu_ATM1\ATMachine.cpp(235,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Statistics.cpp
+C:\Users\rldkv\source\repos\KimHyunSu_ATM1\KimHyunSu_ATM1\Statistics.cpp(65,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
   KimHyunSu_ATM1.vcxproj -> C:\Users\rldkv\source\repos\KimHyunSu_ATM1\Debug\KimHyunSu_ATM1.exe
