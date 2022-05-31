@@ -200,7 +200,6 @@ void Screen::payment() {
 	}
 }
 
-
 Screen::~Screen() {
 	for (int r = 0; r < nRowMax; ++r)
 		delete[] pSeatArray[r];

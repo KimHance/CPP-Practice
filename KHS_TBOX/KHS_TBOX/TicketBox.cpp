@@ -1,6 +1,8 @@
 #include <iostream>
+#include <string>
 #include "Screen.h"
 #include "TicketBox.h"
+#include "Statistics.h"
 using namespace std;
 
 TUKoreaTBox::TUKoreaTBox() {
@@ -19,10 +21,10 @@ Screen* TUKoreaTBox::selectMenu() {
 	cout << "--------------------" << endl;
 	cout << "  상영관 메인 메뉴" << endl;
 	cout << "--------------------" << endl;
-	cout << " 1.\t유럽\t영화\t1관" << endl;
-	cout << " 2.\t아시아\t영화\t2관" << endl;
-	cout << " 3.\t프리미엄\t영화\t3관" << endl;
-	cout << " 7.\t통계\t관리" << endl;
+	cout << " 1. 유럽     영화 1관" << endl;
+	cout << " 2. 아시아   영화 2관" << endl;
+	cout << " 3. 프리미엄 영화 3관" << endl;
+	cout << " 7. 통계 관리" << endl;
 	cout << "\n 선택(1~3,9) 그외 종료 : ";
 	cin >> num;
 
@@ -43,7 +45,7 @@ Screen* TUKoreaTBox::selectMenu() {
 			return pScreen;
 		}
 		case 9:{
-			Manage();
+			return NULL;
 		}
 		default: {
 			return NULL;
@@ -57,6 +59,36 @@ void TUKoreaTBox::Initialize() {
 	pPremiumScreen = new PremiumScreen("닥터 스트레인지2", 30000, 6, 6);
 }
 void TUKoreaTBox::Manage() {
+	
+	Statistics statistics;
+
+	string passwd;
+	cout << "------------------------------" << endl;
+	cout << "         관리자 메뉴" << endl;
+	cout << "------------------------------" << endl;
+	
+	while (true) {
+		cout << " 관리자 비밀번호 입력 : ";
+		cin >> passwd; cout << endl;
+		if (passwd != TICKETBOX_MANAGER_PWD) {
+			cout << "비밀번호 오류" << endl;
+			continue;
+		}
+		int euroRev, asiaRev, premRev, totalSales=0;
+		euroRev = statistics.totalRevenue(this->pEuropeScreen);
+		asiaRev = statistics.totalRevenue(this->pAsiaScreen);
+		premRev = statistics.totalRevenue(this->pPremiumScreen);
+		cout << "1. 유럽영화 상영관 결제금액 : " << euroRev << endl;
+		cout << "2. 아시아영화 상영관 결제금액 : " << asiaRev << endl;
+		cout << "3. 프리미엄영화 상영관 결제금액 : " << premRev << endl;
+
+		totalSales += statistics.totalSalesCount(this->pEuropeScreen);
+		totalSales += statistics.totalSalesCount(this->pAsiaScreen);
+		totalSales += statistics.totalSalesCount(this->pPremiumScreen);
+		cout << "4. 전체 티켓 판매량 : " << totalSales << endl;
+		break;
+	}
+	
 }
 
 int Ticket::totalReserved = 0;

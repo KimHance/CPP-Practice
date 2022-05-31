@@ -3,8 +3,10 @@
 #include "Screen.h"
 
 class Statistics {
+	static int sales;
 public: // Static 함수 구현
 	static int totalRevenue(Screen* pScreen);
 	static int totalSalesCount(Screen* pScreen);
 };
+
 #endif

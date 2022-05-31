@@ -15,7 +15,10 @@ int main() {
 	while (1) {
 		if (bScreenMenu) {
 			screen = tBox.selectMenu();
-			if (screen == NULL) continue;
+			if (screen == NULL) {
+				tBox.Manage();
+				return 0;
+			}
 			bScreenMenu = false;
 			if (!screen) return 0;
 		}
@@ -47,6 +50,5 @@ int main() {
 			break;
 		}
 	}
-	delete screen;
 	return 0;
 }
